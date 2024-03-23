@@ -101,7 +101,7 @@ jobs:
 
       # Construction et push de l'image pour le déploiement
       - name: Build & push image to deployment
-        # Dépend du succès de l'analyse Trivy
+        # Dépend du succès de l'analyse Trivy 
         if: ${{ steps.trivy_scan.outcome == 'success' }}
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
