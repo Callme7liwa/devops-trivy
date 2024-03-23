@@ -59,7 +59,7 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+         
       
       - name: Send Trivy scan report by email
         uses: dawidd6/action-send-mail@v2
