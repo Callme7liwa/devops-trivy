@@ -37,25 +37,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-						<id>run-trivy</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>trivy</executable>
-							<!-- Add Trivy options here -->
-							
-						</configuration>
-					</execution>
-				</executions>
-        	</plugin>
+			
 		</plugins>
 		<finalName>springboot-images-new</finalName>
 	</build>
