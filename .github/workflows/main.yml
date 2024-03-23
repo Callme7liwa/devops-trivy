@@ -37,6 +37,8 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t callme7liwa/github-action-with-trivy .
+    - name: Push image to Docker Hub (if build succeeds)
+      run: docker push callme7liwa/github-action-trivy-test
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
