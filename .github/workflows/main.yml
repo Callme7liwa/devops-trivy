@@ -71,6 +71,10 @@ jobs:
           ignore-unfixed: true
           # Types de vulnérabilités à rechercher
           vuln-type: 'os,library'
+          
+      - name: Check for vulnerabilities
+        run: exit ${{ steps.trivy_scan.outputs.exit_code }}
+        if: steps.trivy_scan.outputs.exit_code != '0'
 
       # Envoi du rapport d'analyse Trivy par email
       - name: Send Trivy scan report by email
