@@ -29,12 +29,40 @@
 		</dependency>
 	</dependencies>
 
+	
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>run-trivy</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>trivy</executable>
+							<!-- Add Trivy options here -->
+							<arguments>
+								<!-- Specify Trivy options -->
+								<argument>--exit-code</argument>
+								<argument>1</argument>
+								<argument>--severity</argument>
+								<argument>HIGH,CRITICAL</argument>
+								<!-- Add more arguments as needed -->
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+        	</plugin>
 		</plugins>
 		<finalName>springboot-images-new</finalName>
 	</build>
